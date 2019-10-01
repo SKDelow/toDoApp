@@ -1,0 +1,35 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      To-Do-List
+    </ion-title>
+  </ion-toolbar>
+  <ion-buttons end>
+    <button ion-button solid color='secondary' (click)="logout()">Logout</button>
+  </ion-buttons>
+</ion-header>
+
+<ion-content padding>
+  <ion-item>
+    <ion-input #input type="text" placeholder="Enter Task" [(ngModel)]="taskName"></ion-input>
+    <div class="item-note" item-end>
+      <ion-button (click)="addTask()">
+        <ion-icon name="add"></ion-icon>
+      </ion-button>
+    </div>
+  </ion-item>
+  <div padding>
+
+    <ion-item *ngFor="let todo of taskList; let i = index">
+      {{todo}}
+      <div class="item-note">
+        <ion-button color="light" clear (click)="updateTask(i)">
+          <ion-icon name="create"></ion-icon>
+        </ion-button>
+        <ion-button color="light" clear (click)="deleteTask(i)">
+          <ion-icon name="trash"></ion-icon>
+        </ion-button>
+      </div>
+    </ion-item>
+  </div>
+</ion-content>
